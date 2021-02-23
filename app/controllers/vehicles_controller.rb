@@ -12,8 +12,8 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @user = current_user
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = current_user
     @vehicle.save ? (redirect_to user_vehicles_path(current_user)) : (render :new)
   end
 
