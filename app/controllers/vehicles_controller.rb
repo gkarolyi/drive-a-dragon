@@ -14,12 +14,12 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
-    @vehicle.save ? (redirect_to user_vehicles_path(current_user)) : (render :new)
+    @vehicle.save ? (redirect_to vehicle_path(@vehicle)) : (render :new)
   end
 
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :description, :location, :price, :user)
+    params.require(:vehicle).permit(:name, :description, :location, :price)
   end
 end
