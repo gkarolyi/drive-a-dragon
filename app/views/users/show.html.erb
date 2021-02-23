@@ -3,11 +3,22 @@
     <div><%= link_to icon('fas', 'plus', class: 'strong'), new_vehicle_path %></div>
 </div>
 
-<h2>My Vehicles</h2>
-<div>
-  <% @user.vehicles.each do |vehicle| %>
-        <div class="card" style="width: 18rem;">
-            <%= link_to vehicle.name, vehicle_path(vehicle) %>
-        </div>
-  <% end %>
-</div>
+<% if @vehicles.any? %>
+  <h2>My Vehicles</h2>
+  <div>
+    <% @vehicles.each do |vehicle| %>
+          <div class="card" style="width: 18rem;">
+              <%= link_to vehicle.name, vehicle_path(vehicle) %>
+          </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @user == current_user && @bookings.any? %>
+  <h2>My Bookings</h2>
+    <% @bookings.each do |booking| %>
+      <div class="card" style="width: 18rem;">
+        <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+      </div>
+    <% end %>
+<% end %>
