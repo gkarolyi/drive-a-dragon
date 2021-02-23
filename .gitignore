@@ -42,4 +42,4 @@ yarn-debug.log*
 .DS_Store
 
 # Ignore Gemfile.lock to avoid bundler compatibility issues
-Gemfile.lock
+# Gemfile.lock
