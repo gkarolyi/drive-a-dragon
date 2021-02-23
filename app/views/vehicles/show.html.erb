@@ -1,7 +1,6 @@
 <div class="vehicle">
   <h1 class="vehicle-name"><%= @vehicle.name %></h1>
-  <p class="vehicle-user">Posted by <%= @vehicle.user.email %></p>
-  (change to name when possible)
+  <p class="vehicle-user">Posted by <%= @vehicle.user.name %></p>
   <p class="vehicle-post">Online since<%= @vehicle.user.created_at %></p>
 
   <p class="vehicle-decription"><%= @vehicle.description %></p>
