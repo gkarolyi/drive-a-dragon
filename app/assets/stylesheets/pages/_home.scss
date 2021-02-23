@@ -1,1 +1,64 @@
 // Specific CSS for your home-page
+.container.page-home {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-home {
+  .banner {
+    background-image: image-url("dragon.png");
+    height: 85vh;
+    padding: 32px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 41%;
+    text-shadow: 1px 1px #fff;
+    z-index: 2;
+  }
+
+  .header h2 {
+    font-size: 60px;
+    color: #322a3c;
+  }
+
+  .header h1 {
+    font-size: 75px;
+    color: #0c0910;
+  }
+
+  .hider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 200px;
+    background: linear-gradient(to top, #fff5e5, transparent);
+  }
+  .cards {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .card {
+    min-height: 12em;
+    padding: 0.8rem;
+  }
+}
