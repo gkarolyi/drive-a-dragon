@@ -5,16 +5,23 @@
     <h2>Rent a magic vehicle for a magic journey</h2>
   </div>
   <div class="menu">
-    <div class="btn btn-sign-in">Sign in</div>
-    <div class="btn btn-sign-in">Login</div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "My profile", user_path(current_user),
+            class: "btn btn-info" %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path,
+            class: "btn btn-sign-in" %>
+      <% end %>
+    </div>
   </div>
   <div class="hider"></div>
 </div>
 <div class="container">
   <h2>Our offers</h2>
   <div class="cards">
-    <div class="card">Flaying Carpet</div>
-    <div class="card">Brom</div>
+    <div class="card">Flying Carpet</div>
+    <div class="card">Broom</div>
     <div class="card">Space Ship</div>
     <div class="card">Magic Powder</div>
     <div class="card">Sombral</div>
