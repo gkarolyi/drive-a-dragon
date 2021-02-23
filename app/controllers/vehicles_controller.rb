@@ -1,19 +1,23 @@
 class VehiclesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @vehicles = Vehicle.all
+    @vehicles = policy_scope(Vehicle).order(created_at: :desc)
   end
 
   def show
-    @vehicle = Vehicle.find(params[:id])
+    @vehicle = policy_scope(Vehicle).find(params[:id])
   end
 
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
+    authorize @vehicle
     @vehicle.save ? (redirect_to vehicle_path(@vehicle)) : (render :new)
   end
 
