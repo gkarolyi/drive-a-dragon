@@ -1,9 +1,10 @@
 <h1><%= @user.email %></h1>
 
-<ul>
-    <% @user.vehicles.each do |vehicle| %>
-        <li>
+<h2>My Vehicles</h2>
+<div>
+  <% @user.vehicles.each do |vehicle| %>
+        <div class="card" style="width: 18rem;">
             <%= link_to vehicle.name, vehicle_path(vehicle) %>
-        </li>
-    <% end %>
-</ul>
+        </div>
+  <% end %>
+</div>
