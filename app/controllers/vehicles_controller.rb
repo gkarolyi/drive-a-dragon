@@ -18,7 +18,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     authorize @vehicle
-    @vehicle.save ? (redirect_to vehicle_path(@vehicle)) : (render :new)
+    @vehicle.save ? (redirect_to user_path(current_user)) : (render :new)
   end
 
   private
