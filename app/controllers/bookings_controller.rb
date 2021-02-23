@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.vehicle = Vehicle.find(params[:vehicle_id])
     @booking.user = current_user
     authorize @booking
     @booking.save ? (redirect_to user_path(current_user)) : (render 'vehicles/show')
