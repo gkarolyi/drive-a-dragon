@@ -1,10 +1,5 @@
 // Specific CSS for your home-page
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap');
 
-html,body {
-  margin: 0;
-  padding: 0;
-}
 .banner {
   background-image: url("../../images/dragon.png");
   height: 85vh;
@@ -28,29 +23,11 @@ html,body {
 .header h2 {
   font-size: 60px;
   color: #322a3c;
-  padding-left: 15px;
-  padding-right: 0;
 }
 
 .header h1 {
   font-size: 75px;
   color: #0c0910;
-}
-
-.sign-in-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: hsla(274, 19%, 26%, 0.603);
-  color: #fff;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.sign-in-btn:hover {
-  background-color: #453750;
 }
 
 .hider {
@@ -60,9 +37,4 @@ html,body {
   left: 0;
   height: 200px;
   background: linear-gradient(to top, #fff5e5, transparent);
-}
-
-body {
-  background-color: #fff5e5;
-  font-family: "Montserrat", sans-serif;
 }
