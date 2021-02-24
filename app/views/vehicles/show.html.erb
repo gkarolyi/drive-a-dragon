@@ -1,13 +1,30 @@
 <div class="vehicle">
-  <h1 class="vehicle-name"><%= @vehicle.name %></h1>
-  <p class="vehicle-user">Posted by <%= @vehicle.user.name %></p>
-  <p class="vehicle-post">Online since<%= @vehicle.user.created_at %></p>
+  <div class="container-header">
+    <h1 class="vehicle-name"><%= @vehicle.name %></h1>
+    <%= link_to "Back", vehicles_path, class:'btn btn-primary' %>
+  </div>
 
-  <p class="vehicle-decription"><%= @vehicle.description %></p>
-  <p class="vehicle-price"><%= @vehicle.price %> €</p>
-  <p class="vehicle-location"><%= @vehicle.location %></p>
+  <p class="vehicle-user">
+    <em>
+      Posted by <%= @vehicle.user.name %> - Online since <%=
+      @vehicle.user.created_at %>
+    </em>
+  </p>
+  <div class="vehicle-margin">
+    <div class="d-flex justify-content-between">
+      <p class="vehicle-decription">
+        <strong>About your magic vehicle:</strong><br />
+        <%= @vehicle.description %>
+      </p>
+      <div class="pr-2">
+        <p class="vehicle-price"><%= @vehicle.price %> €</p>
+        <p class="vehicle-location">
+          <strong> To pick up at:</strong> <br />
+          <%= @vehicle.location %>
+        </p>
+      </div>
+    </div>
+
+    <div class="booking-form"><%= render "./shared/booking_form.html" %></div>
+  </div>
 </div>
-
-<div class="booking-form">Form here</div>
-
-<%= link_to "Back", vehicles_path %>
