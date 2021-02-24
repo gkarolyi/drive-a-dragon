@@ -34,7 +34,7 @@ puts "Creating vehicles..."
 
 file_one = URI.open('https://otb.cachefly.net/wp-content/uploads/2014/10/Virgin-Galactic-Spaceship-Two.png')
 file_two = URI.open('https://www.parcl.com/files/blog/milleniumfalconairhogs.jpg')
-file_three = URI.open('https://image.shutterstock.com/image-photo/magic-flying-persian-carpet-isolated-260nw-250837636.jpg')
+file_three = URI.open('http://www.stuartwilde.com/img_swb/flying_carpet_2.jpg')
 file_four = URI.open('http://www.thecraftdookit.co.uk/2240-large_default/doll.jpg')
 file_five = URI.open('https://cache.desktopnexus.com/thumbseg/1271/1271162-bigthumbnail.jpg')
 
@@ -46,7 +46,7 @@ vehicle_five = Vehicle.create(user: user_five, name: "Green Dragon", description
 
 vehicle_one.photos.attach(io: file_one, filename: 'Virgin-Galactic-Spaceship-Two.png', content_type: 'image/png')
 vehicle_two.photos.attach(io: file_two, filename: 'milleniumfalconairhogs.jpg', content_type: 'image/jpg')
-vehicle_three.photos.attach(io: file_three, filename: 'magic-flying-persian-carpet-isolated-260nw-250837636.jpg', content_type: 'image/jpg')
+vehicle_three.photos.attach(io: file_three, filename: 'flying_carpet_2.jpg', content_type: 'image/jpg')
 vehicle_four.photos.attach(io: file_four, filename: 'doll.jpg', content_type: 'image/jpg')
 vehicle_five.photos.attach(io: file_five, filename: '1271162-bigthumbnail.jpg', content_type: 'image/jpg')
 
