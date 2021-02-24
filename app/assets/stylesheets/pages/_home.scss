@@ -1,8 +1,14 @@
 // Specific CSS for your home-page
-.container.page-home {
+.page-home {
   max-width: none;
   padding: 0;
   margin: 0;
+}
+
+.break-out {
+  width: 100vw;
+  position: relative;
+  left: calc(-1 * (100vw - 100%) / 2);
 }
 
 .page-home {
