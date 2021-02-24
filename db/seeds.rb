@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Cleaning review database..."
 Review.destroy_all
 
@@ -29,11 +31,24 @@ puts "Finished!"
 
 puts "Creating vehicles..."
 
+
+file_one = URI.open('https://otb.cachefly.net/wp-content/uploads/2014/10/Virgin-Galactic-Spaceship-Two.png')
+file_two = URI.open('https://www.parcl.com/files/blog/milleniumfalconairhogs.jpg')
+file_three = URI.open('http://www.stuartwilde.com/img_swb/flying_carpet_2.jpg')
+file_four = URI.open('http://www.thecraftdookit.co.uk/2240-large_default/doll.jpg')
+file_five = URI.open('https://cache.desktopnexus.com/thumbseg/1271/1271162-bigthumbnail.jpg')
+
 vehicle_one = Vehicle.create(user: user_one, name: "Executor", description: "Super Star Destroyer", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 250000)
 vehicle_two = Vehicle.create(user: user_two, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 50000)
 vehicle_three = Vehicle.create(user: user_three, name: "Flying Carpet", description: "Carpet that can fly!", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 10000)
 vehicle_four = Vehicle.create(user: user_four, name: "Red Dragon", description: "A big red dragon", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 25000)
 vehicle_five = Vehicle.create(user: user_five, name: "Green Dragon", description: "A big green dragon", location: "France", category: Vehicle::CATEGORIES.sample, price: 25000)
+
+vehicle_one.photos.attach(io: file_one, filename: 'Virgin-Galactic-Spaceship-Two.png', content_type: 'image/png')
+vehicle_two.photos.attach(io: file_two, filename: 'milleniumfalconairhogs.jpg', content_type: 'image/jpg')
+vehicle_three.photos.attach(io: file_three, filename: 'flying_carpet_2.jpg', content_type: 'image/jpg')
+vehicle_four.photos.attach(io: file_four, filename: 'doll.jpg', content_type: 'image/jpg')
+vehicle_five.photos.attach(io: file_five, filename: '1271162-bigthumbnail.jpg', content_type: 'image/jpg')
 
 puts "Created #{vehicle_one}"
 puts "Created #{vehicle_two}"
