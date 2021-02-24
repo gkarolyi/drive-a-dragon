@@ -25,6 +25,9 @@
         <td><%= vehicle.price %> </td>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% vehicle.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
