@@ -3,8 +3,7 @@
   <%= f.input :description %>
   <%= f.input :location %>
   <%= f.input :price %>
-  <%= f.input :category, collection: Vehicle::CATEGORIES %>
+  <%= f.input :category %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>
-
