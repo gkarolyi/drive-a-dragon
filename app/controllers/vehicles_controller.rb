@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @vehicle = policy_scope(Vehicle).find(params[:id])
   end
 
@@ -24,6 +25,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :description, :location, :price)
+    params.require(:vehicle).permit(:name, :description, :location, :price, photos: [])
   end
 end
