@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Cleaning review database..."
 Review.destroy_all
 
@@ -29,11 +31,20 @@ puts "Finished!"
 
 puts "Creating vehicles..."
 
+
+
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
+
+
+
 vehicle_one = Vehicle.create(user: user_one, name: "Executor", description: "Super Star Destroyer", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 250000)
 vehicle_two = Vehicle.create(user: user_two, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 50000)
 vehicle_three = Vehicle.create(user: user_three, name: "Flying Carpet", description: "Carpet that can fly!", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 10000)
 vehicle_four = Vehicle.create(user: user_four, name: "Red Dragon", description: "A big red dragon", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 25000)
 vehicle_five = Vehicle.create(user: user_five, name: "Green Dragon", description: "A big green dragon", location: "France", category: Vehicle::CATEGORIES.sample, price: 25000)
+
+vehicle_one.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 puts "Created #{vehicle_one}"
 puts "Created #{vehicle_two}"
