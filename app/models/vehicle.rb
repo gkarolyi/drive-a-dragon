@@ -1,5 +1,4 @@
 class Vehicle < ApplicationRecord
-
   CATEGORIES = ['sci-fi', 'magic creature', 'magic object'].freeze
 
   belongs_to :user
