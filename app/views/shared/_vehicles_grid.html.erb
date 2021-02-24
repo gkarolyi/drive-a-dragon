@@ -1,0 +1,10 @@
+<div class="cards">
+    <% @vehicles.each do |vehicle| %>
+        <% url = 'https://picsum.photos/320/180' %>
+        <%= link_to vehicle_path(vehicle) do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url %>)">
+                <%= vehicle.name %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
