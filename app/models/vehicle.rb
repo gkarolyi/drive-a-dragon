@@ -7,7 +7,7 @@ class Vehicle < ApplicationRecord
   validates :name, uniqueness: true
   validates :user, presence: true
   validates :price, presence: true
-  # validates :category, inclusion: { in: :category? }
+  validates :category, inclusion: { in: :category? }
 
   private
 

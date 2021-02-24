@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @vehicle = policy_scope(Vehicle).find(params[:id])
   end
 

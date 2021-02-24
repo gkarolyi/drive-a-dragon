@@ -1,0 +1,17 @@
+
+<div>
+    <h5>Make a booking!</h5>
+    <%= simple_form_for [ @vehicle, @booking ] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.button :submit, "Request booking", class: 'btn btn-primary' %>
+    <% end %>
+</div>
+
+
+
+<%# 
+
+<vaadin-date-time-picker id="start_date"></vaadin-date-time-picker>
+
+<vaadin-date-time-picker id="end_date"></vaadin-date-time-picker> %>
