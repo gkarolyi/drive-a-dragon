@@ -9,6 +9,12 @@ class Vehicle < ApplicationRecord
   validates :price, presence: true
   validates :category, inclusion: { in: :category? }
 
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
   private
 
   def category?

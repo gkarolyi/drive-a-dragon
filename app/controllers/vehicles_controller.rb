@@ -8,6 +8,7 @@ class VehiclesController < ApplicationController
   def show
     @booking = Booking.new
     @vehicle = policy_scope(Vehicle).find(params[:id])
+    @unavailable_dates = @vehicle.unavailable_dates
   end
 
   def new
