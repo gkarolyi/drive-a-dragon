@@ -7,5 +7,8 @@ class User < ApplicationRecord
   has_many :vehicles
   has_many :bookings
   has_many :reviews
-  has_many :messages, dependent: :destroy
+  has_many :messagee, foreign_key: :receiver_id, class_name: "Message"
+  has_many :senders, through: :messagee
+  has_many :messaged, foreign_key: :sender_id, class_name: "Message"
+  has_many :receivers, through: :messaged
 end
