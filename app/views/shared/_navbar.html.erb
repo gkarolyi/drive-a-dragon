@@ -1,16 +1,37 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <p class="navbar-logo">Drive-a-dragon</p>
-  <% end %>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Sign in", '#', class: "btn-round btn-outline" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Log in", '#', class: "btn-round btn-solid" %>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <% unless user_signed_in? %>
+                <li class="nav-item">
+                <%= link_to "Sign in", new_user_session_path,
+                    class: "btn btn-primary" %>
+                </li>
+            <% end %>
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                <%= link_to "Sign out",
+                    destroy_user_session_path,
+                    html_options = {
+                        method: 'DELETE',
+                        class: "btn btn-danger"
+                    }
+                    %>
+                </li>
+            <% end %>
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                <%= link_to "My profile", user_path(current_user),
+                    class: "btn btn-secondary" %>
+                </li>
+            <% end %>
+            <li class="nav-item">
+            <%= link_to "Vehicles", vehicles_path,
+                class: "btn btn-warning" %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Home", root_path,
+                class: "btn btn-info" %>
+            </li>
+        </ul>
+    </div>
 </div>
