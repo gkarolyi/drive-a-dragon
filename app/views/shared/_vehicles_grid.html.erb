@@ -1,10 +1,19 @@
 <div class="cards">
     <% @vehicles.each do |vehicle| %>
-        <% url = 'https://picsum.photos/320/180' %>
-        <%= link_to vehicle_path(vehicle) do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url %>)">
+        <% if vehicle.photos.any? %>
+
+          <%= link_to vehicle_path(vehicle) do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path vehicle.photos.first.key %>)">
                 <%= vehicle.name %>
             </div>
+          <% end %>
+
+        <% else %>
+          <%= link_to vehicle_path(vehicle) do %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/320/180)">
+                  <%= vehicle.name %>
+              </div>
+          <% end %>
         <% end %>
     <% end %>
 </div>
