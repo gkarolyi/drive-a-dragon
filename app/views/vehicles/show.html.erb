@@ -25,10 +25,10 @@
       </div>
     </div>
 
-    <% unless @vehicle.bookings.nil? %>
-      <%= render 'shared/bookings_table' %>
-    <% end %>
-
     <div class="booking-form"><%= render "./shared/booking_form.html" %></div>
+    <div class="reserved">
+      <% unless @vehicle.bookings.nil? %> <%= render 'shared/bookings_table' %>
+      <% end %>
+    </div>
   </div>
 </div>
