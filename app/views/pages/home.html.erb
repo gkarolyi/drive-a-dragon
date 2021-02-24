@@ -1,26 +1,13 @@
-<% content_for :classes do %> page-home <% end %>
-<div class="banner">
-  <div class="header">
-    <h1>Drive a Dragon</h1>
-    <h2>Rent a magic vehicle for a magic journey</h2>
-  </div>
-  <div class="menu">
-    <div>
-      <% if user_signed_in? %>
-        <%= link_to "Sign out",
-                    destroy_user_session_path,
-                    html_options = {
-                        method: 'DELETE',
-                        class: "btn btn-danger"
-                    }
-                    %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path,
-            class: "btn btn-sign-in" %>
-      <% end %>
+<div class="page-home break-out">
+  <div class="banner">
+    <div class="header">
+      <h1>Drive a Dragon</h1>
+      <h2>Rent a magic vehicle for a magic journey</h2>
     </div>
+    </div>
+    <div class="hider"></div>
   </div>
-  <div class="hider"></div>
+  <br>
+  <%= render 'shared/vehicles_grid' %>
+  <br>
 </div>
-<br>
-<%= render 'shared/vehicles_grid' %>
