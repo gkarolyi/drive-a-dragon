@@ -29,8 +29,15 @@ p {
   justify-content: space-between;
 }
 
-.reserved {
+.reserved .list-group {
   list-style-type: none;
   padding-top: 15px;
   padding-left: 15px;
+}
+
+.vehicle-name {
+  img {
+    height: 0.9em;
+    width: auto;
+  }
 }
