@@ -1,18 +1,20 @@
-<div class="cards">
-    <% @vehicles.each do |vehicle| %>
-        <% if vehicle.photos.any? %>
-          <%= link_to vehicle_path(vehicle) do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path vehicle.photos.first.key %>)">
-                <%= vehicle.name %>
-            </div>
-          <% end %>
-
-        <% else %>
-          <%= link_to vehicle_path(vehicle) do %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path "spaceship.png" %>)">
+<div class="container">
+  <div class="cards">
+      <% @vehicles.each do |vehicle| %>
+          <% if vehicle.photos.any? %>
+            <%= link_to vehicle_path(vehicle) do %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path vehicle.photos.first.key %>)">
                   <%= vehicle.name %>
               </div>
+            <% end %>
+
+          <% else %>
+            <%= link_to vehicle_path(vehicle) do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path "spaceship.png" %>)">
+                    <%= vehicle.name %>
+                </div>
+            <% end %>
           <% end %>
-        <% end %>
-    <% end %>
+      <% end %>
+  </div>
 </div>
