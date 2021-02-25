@@ -1,8 +1,14 @@
 // Specific CSS for your home-page
-.container.page-home {
+.page-home {
   max-width: none;
   padding: 0;
   margin: 0;
+}
+
+.break-out {
+  width: 100vw;
+  position: relative;
+  left: calc(-1 * (100vw - 100%) / 2);
 }
 
 .page-home {
@@ -56,6 +62,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+    margin-left: 25px;
+    margin-right: 25px;
   }
   .card {
     min-height: 12em;

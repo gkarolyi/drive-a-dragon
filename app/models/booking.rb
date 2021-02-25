@@ -19,6 +19,14 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, presence: true, availability: true
   validate :end_date_after_start_date
 
+  def self.from_user(user_id)
+    where("user_id = ?", user_id)
+  end
+
+  def self.booked_now
+    where("start_date <= ?", Date.today).where("end_date >= ?", Date.today)
+  end
+
   private
 
   def end_date_after_start_date

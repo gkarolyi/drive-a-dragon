@@ -1,0 +1,11 @@
+<div>
+  <ul class="list-group">
+    <% @vehicle.bookings.each do |booking| %>
+      <li class="list-item">
+        <p>booked from <%= booking.start_date %> to <%= booking.end_date %> by <%= booking.user.name %>
+        </p>
+      </li>
+
+      <% end %>
+  </ul>
+</div>
