@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :vehicles, only: [:index, :show, :new, :create, :update] do
     resources :bookings, only: [:index, :show, :new, :create]
   end
+  resources :bookings, only: :update
 end

@@ -10,12 +10,14 @@ class AvailabilityValidator < ActiveModel::EachValidator
 end
 
 class Booking < ApplicationRecord
+  STATUS = ['pending', 'accepted', 'declined'].freeze
   belongs_to :vehicle
   belongs_to :user
   has_many :reviews
 
   validates :vehicle, presence: true
   validates :user, presence: true
+  validates :status, inclusion: { in: STATUS }
   validates :start_date, :end_date, presence: true, availability: true
   validate :end_date_after_start_date
 
