@@ -1,17 +1,11 @@
+<div class="container">
+  <div class="form-wrapper" id="booking-form" data-unavailable-dates="<%= @vehicle.unavailable_dates.to_json() %>">
+    <h2>Request a booking</h2>
 
-<div>
-    <h5>Make a booking!</h5>
     <%= simple_form_for [ @vehicle, @booking ] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.button :submit, "Request booking", class: 'btn btn-primary' %>
+      <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", id: "booking_start_date"} %>
+      <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "booking_end_date"} %>
+      <%= f.submit "Book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
     <% end %>
+  </div>
 </div>
-
-
-
-<%# 
-
-<vaadin-date-time-picker id="start_date"></vaadin-date-time-picker>
-
-<vaadin-date-time-picker id="end_date"></vaadin-date-time-picker> %>

@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.vehicle = Vehicle.find(params[:vehicle_id])
     @booking.user = current_user
     authorize @booking
-    @booking.save ? (redirect_to user_path(current_user)) : (render 'vehicles/show')
+    @booking.save ? (redirect_to user_path(current_user)) : (redirect_to vehicle_path(@booking.vehicle))
   end
 
   def update
