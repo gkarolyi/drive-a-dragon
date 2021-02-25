@@ -1,14 +1,47 @@
+<div class="container">
 <div class="vehicle">
-  <h1 class="vehicle-name"><%= @vehicle.name %></h1>
-  <h1 class="vehicle-email"><%= @vehicle.email %></h1>
-  <p class="vehicle-user">Posted by <%= @vehicle.user.name %></p>
-  <p class="vehicle-post">Online since<%= @vehicle.user.created_at %></p>
+  <div class="container-header">
+    <h1 class="vehicle-name">
+      <%= @vehicle.name %>
+      <% if current_user %>
+        <% if @vehicle.bookings.booked_now.from_user(current_user.id).count> 0 %>
+          <%= image_tag 'reserved.png' %>
+        <% end %>
+      <% end %>
+    </h1>
 
-  <p class="vehicle-decription"><%= @vehicle.description %></p>
-  <p class="vehicle-price"><%= @vehicle.price %> €</p>
-  <p class="vehicle-location"><%= @vehicle.location %></p>
+    <br />
+    <%= link_to "Back" , vehicles_path, class:'btn btn-primary' %>
+  </div>
+  <p class="vehicle-user">
+    <em>
+      Posted by <%= @vehicle.user.name %> - Online since <%= @vehicle.user.created_at %>
+    </em>
+  </p>
+  <div class="vehicle-margin">
+    <div class="d-flex justify-content-between">
+      <p class="vehicle-decription">
+        <strong>About your magic vehicle:</strong><br />
+        <%= @vehicle.description %>
+      </p>
+      <div class="pr-2">
+        <p class="vehicle-price">
+          <%= @vehicle.price %> €
+        </p>
+        <p class="vehicle-location">
+          <strong> To pick up at:</strong> <br />
+          <%= @vehicle.location %>
+        </p>
+      </div>
+    </div>
+
+    <div class="booking-form">
+      <%= render "./shared/booking_form.html" %>
+    </div>
+    <div class="reserved">
+      <% unless @vehicle.bookings.nil? %>
+        <%= render 'shared/bookings_table' %>
+          <% end %>
+    </div>
+  </div>
 </div>
-
-<div class="booking-form">Form here</div>
-
-<%= link_to "Back", vehicles_path %>

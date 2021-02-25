@@ -1,13 +1,13 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 24px;
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 190px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,6 +18,11 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   font-family: "Philosopher-Regular";
+  
+  &:hover {
+    color:rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
 }
 
 // Smallest device
