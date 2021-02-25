@@ -6,21 +6,34 @@
 </div>
 
 <% if @vehicles.any? %>
-  <h2>My Vehicles</h2>
+  <% my = @user == current_user ? "" : "My"  %>
+  <h2><%= my %> Vehicles</h2>
   <div>
-    <% @vehicles.each do |vehicle| %>
-          <div class="card" style="width: 18rem;">
-              <%= link_to vehicle.name, vehicle_path(vehicle) %>
-          </div>
-    <% end %>
+    <%= render 'shared/vehicles_grid' %>
   </div>
+<% end %>
+
+<% if @user == current_user && @vehicle_bookings.any? %>
+  <h2>Bookings of my vehicles</h2>
+    <% @vehicle_bookings.each do |booking| %>
+      <div class="card">
+        <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+        <p><%= booking.status %></p>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :radio_buttons, collection: Booking::STATUS %>
+          <%= f.submit %>
+        <% end %>
+
+      </div>
+    <% end %>
 <% end %>
 
 <% if @user == current_user && @bookings.any? %>
   <h2>My Bookings</h2>
     <% @bookings.each do |booking| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+        <p><%= booking.status %></p>
       </div>
     <% end %>
 <% end %>
