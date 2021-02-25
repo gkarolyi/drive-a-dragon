@@ -98,9 +98,9 @@ puts "Finished!"
 
 # Creating bookings
 
-booking_one = Booking.create(user: user_one, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.now)
-booking_two = Booking.create(user: user_two, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.now)
-booking_three = Booking.create(user: user_three, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now)
+booking_one = Booking.create(user: user_one, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.tomorrow)
+booking_two = Booking.create(user: user_two, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow)
+booking_three = Booking.create(user: user_three, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.tomorrow)
 
 puts "Created #{booking_one}"
 puts "Created #{booking_two}"
