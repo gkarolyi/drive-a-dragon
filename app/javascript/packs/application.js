@@ -25,8 +25,11 @@ import "@vaadin/vaadin-date-time-picker/vaadin-date-time-picker.js";
 // import { initSelect2 } from '../components/init_select2';
 // import { stickyNavbar } from "../plugins/sticky_navbar";
 
+import { typed } from "../plugins/typed-js";
+
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
   // stickyNavbar();
+  typed();
 });

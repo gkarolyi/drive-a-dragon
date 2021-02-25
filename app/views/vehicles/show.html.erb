@@ -25,7 +25,9 @@
       <div class="d-flex justify-content-between">
         <p class="vehicle-decription">
           <strong>About your magic vehicle:</strong><br />
-          <%= @vehicle.description %>
+          <div id="typed-strings">
+            <%= @vehicle.description %>
+          </div>
         </p>
         <div class="pr-2">
           <p class="vehicle-price">
