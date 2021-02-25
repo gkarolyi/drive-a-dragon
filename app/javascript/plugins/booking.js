@@ -6,12 +6,15 @@ const toggleDateInputs = () => {
 
   if (startDateInput && endDateInput) {
     const unavailableDates = JSON.parse(
-      document.querySelector(".widget-content").dataset.unavailable
+      document.getElementById("booking-form").dataset.unavailableDates
     );
 
     flatpickr(startDateInput, {
+      altInput: true,
+      enableTime: true,
       minDate: "today",
       dateFormat: "d-m-Y",
+      minuteIncrement: 30,
       disable: unavailableDates,
       onChange: function (selectedDates, selectedDate) {
         if (selectedDate === "") {
@@ -24,7 +27,10 @@ const toggleDateInputs = () => {
       },
     });
     const endDateCalendar = flatpickr(endDateInput, {
+      altInput: true,
+      enableTime: true,
       dateFormat: "d-m-Y",
+      minuteIncrement: 30,
       disable: unavailableDates,
     });
   }
