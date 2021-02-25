@@ -21,6 +21,7 @@
     <% @bookings.each do |booking| %>
       <div class="card" style="width: 18rem;">
         <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+        <%= link_to "Add a review", new_vehicle_booking_review_path(booking.vehicle, booking) %>
       </div>
     <% end %>
 <% end %>
