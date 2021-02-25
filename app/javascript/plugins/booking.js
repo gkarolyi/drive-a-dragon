@@ -8,7 +8,7 @@ const toggleDateInputs = () => {
     const unavailableDates = JSON.parse(
       document.getElementById("booking-form").dataset.unavailableDates
     );
-
+    console.log(unavailableDates);
     flatpickr(startDateInput, {
       altInput: true,
       enableTime: true,
