@@ -1,41 +1,68 @@
-<div class="container">
+<h1><%= @user.name %></h1>
 
-<div class="d-flex justify-content-between align-items-center">
-    <h1><%= @user.name %></h1>
-    <div><%= link_to icon('fas', 'plus', class: 'strong'), new_vehicle_path %></div>
+<div class="vehicle mx-0 w-100">
+  <% if @user == current_user && @bookings.any? %>
+    <% your = @user == current_user ? "Your" : ""  %>
+    <h2 class="mb-3"><%= your %> Bookings</h2>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+          <%= cl_image_tag booking.vehicle.photos.first.key %>
+          <div class="card-product-infos">
+            <h3>
+              <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+            </h3>
+            <p>
+              <%= link_to booking.vehicle.user.name, user_path(booking.vehicle.user) %>
+            </p>
+            <p>
+              From: <strong><%= booking.start_date.strftime("%d/%m/%Y %I%p")%></strong> to: <strong><%= booking.end_date.strftime("%d/%m/%Y %I%p") %></strong>
+            </p>
+            <p><%= booking.status %></p>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>
+<div class="vehicle mx-0 w-100">
+  <% if @user == current_user && @vehicle_bookings.any? %>
+    <h2 class="mb-3">Bookings of your vehicles</h2>
+      <% @vehicle_bookings.each do |booking| %>
+        <div class="card-product h-100">
+          <%= cl_image_tag booking.vehicle.photos.first.key %>
+          <div class="card-product-infos">
+            <h3>
+              <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
+            </h3>
+            <p>
+              <%= link_to booking.user.name, user_path(booking.user) %>
+            </p>
+            <p>
+              From: <strong><%= booking.start_date.strftime("%d/%m/%Y %I%p")%></strong> to: <strong><%= booking.end_date.strftime("%d/%m/%Y %I%p") %></strong>
+            </p>
+            <p><%= booking.status %></p>
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :radio_buttons, collection: Booking::STATUS %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
 </div>
 
-<% if @vehicles.any? %>
-  <% my = @user == current_user ? "" : "My"  %>
-  <h2><%= my %> Vehicles</h2>
-  <div>
-    <%= render 'shared/vehicles_grid' %>
-  </div>
-<% end %>
+<div class="vehicle mx-0 w-100">
+  <% if @vehicles.any? %>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <% your = @user == current_user ? "Your" : ""  %>
+        <h2><%= your %> Vehicles</h2>
+        <div><%= link_to icon('fas', 'plus', class: 'strong'), new_vehicle_path %></div>
+    </div>
 
-<% if @user == current_user && @vehicle_bookings.any? %>
-  <h2>Bookings of my vehicles</h2>
-    <% @vehicle_bookings.each do |booking| %>
-      <div class="card">
-        <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
-        <p><%= booking.status %></p>
-        <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :radio_buttons, collection: Booking::STATUS %>
-          <%= f.submit %>
-        <% end %>
-
-      </div>
-    <% end %>
-<% end %>
-
-<% if @user == current_user && @bookings.any? %>
-  <h2>My Bookings</h2>
-    <% @bookings.each do |booking| %>
-      <div class="card">
-        <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
-        <p><%= booking.status %></p>
-      </div>
-    <% end %>
-<% end %>
-
+    <div>
+      <%= render 'shared/vehicles_grid' %>
+    </div>
+  <% end %>
 </div>
+
+
+
