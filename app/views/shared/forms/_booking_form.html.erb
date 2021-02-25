@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="form-wrapper" id="booking-form" data-unavailable-dates="<%= @vehicle.unavailable_dates %>">
+  <div class="form-wrapper" id="booking-form" data-unavailable-dates="<%= @vehicle.unavailable_dates.to_json() %>">
     <h2>Request a booking</h2>
 
     <%= simple_form_for [ @vehicle, @booking ] do |f| %>
