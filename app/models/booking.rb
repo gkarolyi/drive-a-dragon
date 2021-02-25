@@ -1,16 +1,16 @@
 class AvailabilityValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    bookings = Booking.where(["developer_id =?", record.developer_id])
+    bookings = Booking.where(vehicle: record.vehicle)
     date_ranges = bookings.map { |b| b.start_date..b.end_date }
 
     date_ranges.each do |range|
-      record.errors.add(attribute, "not available") if range.include? value
+      record.errors.add(attribute, "not available") if range.cover? value
     end
   end
 end
 
 class Booking < ApplicationRecord
-  belongs_to :vehicle, counter_cache: true
+  belongs_to :vehicle
   belongs_to :user
   has_many :reviews
 
