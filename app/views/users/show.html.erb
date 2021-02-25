@@ -7,7 +7,7 @@
     <h2 class="mb-3"><%= your %> Bookings</h2>
       <% @bookings.each do |booking| %>
         <div class="card-product">
-          <%= cl_image_tag booking.vehicle.photos.first.key %>
+          <%= cl_image_tag booking.vehicle.photos.first.key, height: '120px' %>
           <div class="card-product-infos">
             <div class="d-flex justify-content-between align-items-center">
               <h3>
@@ -31,8 +31,8 @@
   <% if @user == current_user && @vehicle_bookings.any? %>
     <h2 class="mb-3">Bookings of your vehicles</h2>
       <% @vehicle_bookings.each do |booking| %>
-        <div class="card-product h-100">
-          <%= cl_image_tag booking.vehicle.photos.first.key %>
+        <div class="card-product" style="height: 145px;">
+          <%= cl_image_tag booking.vehicle.photos.first.key, height: '145px' %>
           <div class="card-product-infos">
             <h3>
               <%= link_to booking.vehicle.name, vehicle_path(booking.vehicle) %>
