@@ -8,17 +8,31 @@
     <div class="hider"></div>
   </div>
 
+<h2>Discover our vehicles:</h3>
 <div class="cards">
-  <%= link_to "Sci-Fi", vehicles_path(query: "sci-fi") do %>
+  <%= link_to vehicles_path(query: 'sci-fi') do %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @vehicles[:sci_fi].photos.first.key %>)">
+      <p>Sci-Fi</p>
+    </div>
+  <% end %>
+
+  <%= link_to vehicles_path(query: 'magic creature') do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @vehicles[:creature].photos.first.key %>)">
+      <p>Magic Creatures</p>
+    </div>
+  <% end %>
+
+  <%= link_to vehicles_path(query: 'magic object') do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @vehicles[:object].photos.first.key %>)">
+      <p>Magic Objects</p>
     </div>
   <% end %>
 </div>
 
 
   <br>
-  <%= render 'shared/vehicles_grid' %>
+
   <br>
 </div>
 
-'Magic Creatures', vehicles_path(query: 'magic creature')
+
