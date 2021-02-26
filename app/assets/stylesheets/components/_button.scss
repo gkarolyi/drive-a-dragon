@@ -19,3 +19,18 @@
   color: $dark-green;
   background: white;
 }
+
+.btn-search {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 12px;
+  text-align: center;
+  background-color: #453750;
+  margin: 2px;
+  color: white;
+  &:hover,
+  &:focus {
+    background-color: hsla(274, 19%, 26%, 0.603);
+    color: white;
+  }
+}

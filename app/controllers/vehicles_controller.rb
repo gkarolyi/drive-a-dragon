@@ -2,7 +2,11 @@ class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @vehicles = policy_scope(Vehicle).order(created_at: :desc)
+    if params[:query].present?
+      @vehicles = policy_scope(Vehicle).where(category: params[:query]).order(created_at: :desc)
+    else
+      @vehicles = policy_scope(Vehicle).order(created_at: :desc)
+    end
   end
 
   def show

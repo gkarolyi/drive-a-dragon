@@ -1,8 +1,4 @@
 // Specific CSS for your home-page
-@font-face {
-  font-family: 'Philosopher';
-  src: url('Philosopher-Regular.ttf');
-}
 
 .page-home {
   max-width: none;
@@ -14,6 +10,7 @@
   width: 100vw;
   position: relative;
   left: calc(-1 * (100vw - 100%) / 2);
+  margin-bottom: 20px;
 }
 
 .page-home {
@@ -46,13 +43,13 @@
   .header h2 {
     font-size: 60px;
     color: #322a3c;
-    font-family: "Philosopher-Regular";
+    font-family: $headers-font;
   }
 
   .header h1 {
     font-size: 75px;
     color: #0c0910;
-    font-family: "Philosopher-Regular";
+    font-family: $headers-font;
   }
 
   .hider {
@@ -60,7 +57,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    height: 200px;
+    height: 700px;
     background: linear-gradient(to top, #fff5e5, transparent);
   }
   .cards {
@@ -78,6 +75,6 @@
   }
 
   .btn {
-    font-family: "Philosopher-Regular";
+    font-family: $headers-font;
   }
 }
