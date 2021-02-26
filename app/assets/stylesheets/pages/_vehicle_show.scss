@@ -57,3 +57,19 @@ p {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.vehicle-location {
+  display: flex;
+  align-items: flex-end;
+}
+
+.right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: flex-start;
+}

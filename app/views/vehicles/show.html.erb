@@ -33,26 +33,27 @@
               </em>
             </p>
           </div>
-          <p class="vehicle-price">
-            <%= @vehicle.price %> €
-          </p>
-          <p class="vehicle-decription">
-            <strong>About your magic vehicle:</strong><br />
-            <%= @vehicle.description %>
-          </p>
-
-          <p class="vehicle-location">
-            <strong> To pick up at:</strong> <br />
-            <%= @vehicle.location %>
-          </p>
+          <div class="right">
+            <p class="vehicle-price">
+              <%= @vehicle.price %> Galleon
+            </p>
+            <p class="vehicle-location">
+              <strong> To pick up at: </strong><br>
+              <%= @vehicle.location %>
+            </p>
+          </div>
+          <div class="right">
+            <p class="vehicle-decription">
+              <strong>About your magic vehicle:</strong><br />
+              <%= @vehicle.description %>
+            </p>
+          </div>
+          <div class="booking-form">
+            <%= render "./shared/booking_form.html" %>
+          </div>
         </div>
 
 
     </div>
-
-    <div class="booking-form">
-      <%= render "./shared/booking_form.html" %>
-    </div>
-    <br>
   </div>
 </div>
