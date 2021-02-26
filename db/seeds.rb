@@ -112,10 +112,23 @@ booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: Dat
 booking_two = Booking.create(user: renter, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'accepted')
 booking_three = Booking.create(user: renter, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'declined')
 
+booking_four = Booking.create(user: renter, vehicle: vehicle_five, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
+booking_five = Booking.create(user: renter, vehicle: vehicle_five, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
+booking_six = Booking.create(user: renter, vehicle: vehicle_five, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
+
+booking_seven = Booking.create(user: renter, vehicle: vehicle_seven, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
+booking_eight = Booking.create(user: renter, vehicle: vehicle_seven, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
+booking_nine = Booking.create(user: renter, vehicle: vehicle_seven, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'accepted')
 
 puts "Created #{booking_one}"
 puts "Created #{booking_two}"
 puts "Created #{booking_three}"
+puts "Created #{booking_four}"
+puts "Created #{booking_five}"
+puts "Created #{booking_six}"
+puts "Created #{booking_seven}"
+puts "Created #{booking_eight}"
+puts "Created #{booking_nine}"
 puts "Finished!"
 
 # Creating reviews
@@ -124,7 +137,21 @@ review_one = Review.create(user: renter, booking: booking_one, title: "The Best!
 review_two = Review.create(user: renter, booking: booking_two, title: "It was okay", content: "It was a decent experience", rating: 3)
 review_three = Review.create(user: renter, booking: booking_three, title: "Wow!", content: "I never had so much fun in my life before.", rating: 5)
 
+review_four = Review.create(user: renter, booking: booking_four, title: "Awesome!", content: "That was a super fun experience.", rating: 5)
+review_five = Review.create(user: renter, booking: booking_four, title: "Can't recommend.", content: "It was pretty boring.", rating: 2)
+review_six = Review.create(user: renter, booking: booking_four, title: "Nice experience.", content: "It was a decent experience.", rating: 4)
+
+review_seven = Review.create(user: renter, booking: booking_seven, title: "Awesome!", content: "That was a super fun experience.", rating: 5)
+review_eight = Review.create(user: renter, booking: booking_seven, title: "Can't recommend.", content: "It was pretty boring.", rating: 2)
+review_nine = Review.create(user: renter, booking: booking_seven, title: "Nice experience.", content: "It was a decent experience.", rating: 4)
+
 puts "Created #{review_one}"
 puts "Created #{review_two}"
 puts "Created #{review_three}"
+puts "Created #{review_four}"
+puts "Created #{review_five}"
+puts "Created #{review_six}"
+puts "Created #{review_seven}"
+puts "Created #{review_eight}"
+puts "Created #{review_nine}"
 puts "Finished!"
