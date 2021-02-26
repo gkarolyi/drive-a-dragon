@@ -1,8 +1,9 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" class="carousel-size">
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <%= cl_image_tag @vehicle.photos.first.key, class:"d-block w-100" %>
+            <%= cl_image_tag @vehicle.photos.first.key, class:"d-block w-100", aspect_ratio: 1.0, width: 600, crop:
+                :fill, gravity: "auto" %>
         </div>
         <% if @vehicle.photos.length()> 1 %>
             <% @vehicle.photos[1..-1].each do |photo| %>
@@ -22,4 +23,6 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-    <% end %>
+        <% end %>
+
+</div>

@@ -9,5 +9,17 @@ class Vehicle < ApplicationRecord
   validates :name, uniqueness: true
   validates :user, presence: true
   validates :price, presence: true
+
   validates :category, inclusion: { in: CATEGORIES }
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
+  def ratings
+    arr = reviews.map(&:rating)
+    { mean: (arr.sum(0.0) / arr.size), count: arr.size }
+  end
 end

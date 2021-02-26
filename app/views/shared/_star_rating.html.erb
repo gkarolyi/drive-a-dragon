@@ -1,0 +1,12 @@
+<div class="container review-form">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for [ @review.booking, @review ] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: Review::RATINGS, label: "Rate your experience" %>
+        <%= f.submit "Send your review" %>
+      <% end %>
+    </div>
+  </div>
+</div>
