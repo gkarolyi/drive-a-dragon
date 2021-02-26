@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.booking = set_booking
+    @booking.review = set_booking
     @review.user = current_user
     authorize @review
     @review.save ? (redirect_to user_path(current_user)) : (render :new)
