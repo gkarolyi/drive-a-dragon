@@ -108,7 +108,7 @@ puts "Finished!"
 # Creating bookings
 
 
-booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'pending')
+booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.yesterday, status: 'accepted')
 booking_two = Booking.create(user: renter, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'accepted')
 booking_three = Booking.create(user: renter, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'declined')
 
