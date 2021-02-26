@@ -26,10 +26,12 @@ import { toggleDateInputs } from "../plugins/booking";
 // import { stickyNavbar } from "../plugins/sticky_navbar";
 // import { initFlatpickr } from "../plugins/flatpickr";
 import { initStarRating } from "../plugins/init_star_rating";
+import { initNavbarActive } from "../plugins/active_navbar";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
   toggleDateInputs();
   initStarRating();
+  initNavbarActive();
 });

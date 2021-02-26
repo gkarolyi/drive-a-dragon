@@ -6,6 +6,6 @@ class UsersController < ApplicationController
     # bookings made by the user ofother vehicles
     @bookings = Booking.where(user: @user)
     # bookings of the users vehicels
-    @vehicle_bookings = Booking.joins(:vehicle).where('vehicles.user_id = ?', @user.id)
+    @vehicle_bookings = Booking.joins(:vehicle).where('vehicles.user_id = ?', @user.id).order(start_date: :desc)
   end
 end

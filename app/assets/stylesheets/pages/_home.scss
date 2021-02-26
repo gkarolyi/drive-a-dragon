@@ -30,6 +30,13 @@
     right: 15px;
   }
 
+  p {
+    font-size: 22px;
+    color: #0c0910;
+    font-family: $headers-font;
+ 
+  }
+
   .header {
     position: absolute;
     top: 50%;
@@ -40,16 +47,25 @@
     z-index: 2;
   }
 
-  .header h2 {
-    font-size: 60px;
-    color: #322a3c;
+  .header h3 {
+    font-size: 38x;
+    color: #0c0910;
     font-family: $headers-font;
+
+  }
+
+  .header h2 {
+    font-size: 54px;
+    color: #0c0910;
+    font-family: $headers-font;
+ 
   }
 
   .header h1 {
     font-size: 75px;
     color: #0c0910;
     font-family: $headers-font;
+
   }
 
   .hider {
