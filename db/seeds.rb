@@ -12,20 +12,16 @@ Vehicle.destroy_all
 puts "Cleaning user database..."
 User.destroy_all
 
+puts "Cleaning review database..."
+Review.destroy_all
+
 # Creating users
 
-user_one = User.create(email: "jens.wagner@gmail.com", password: "123456", name: "Jens Wagner")
-user_two = User.create(email: "john.doe@gmail.com", password: "abcdef", name: "John Doe")
-user_three = User.create(email: "lisa.mueller@gmx.com", password: "Anme2382", name: "Lisa Mueller")
-user_four = User.create(email: "mike.berg@web.de", password: "Jdahb383", name: "Mike Berg")
-user_five = User.create(email: "walter.white@gmail.de", password: "Mnen3933", name: "Walter White")
+owner = User.create(email: "jens.wagner@gmail.com", password: "123456", name: "Jens Wagner")
+renter = User.create(email: "hermione@hogwarts.com", password: "abcdef", name: "Hermione Granger")
 
-puts "Created #{user_one}"
-puts "Created #{user_two}"
-puts "Created #{user_three}"
-puts "Created #{user_four}"
-puts "Created #{user_five}"
-puts "Finished!"
+puts "Created #{owner}"
+puts "Created #{renter}"
 
 # Creating vehicles
 
@@ -47,21 +43,21 @@ file_thirteen = URI.open('https://cdn.trendhunterstatic.com/thumbs/futuristic-mo
 file_fourteen = URI.open('https://photos.desired.de/12/55/45/cd8b6dc20e44c5222a0f408211_ZmMgODBhZDZmZTdmZmZmIDk1MCA0NzUCcmUgOTUwIDQ3NQMxNWNiY2VjMjAwMQ==_pegasus-tattoo.png')
 file_fifteen = URI.open('https://bilder.t-online.de/b/76/36/23/36/id_76362336/c_Master-1-1-Large/tid_da/der-phoenix-hat-viele-bedeutungen-im-christentum-symbolisiert-er-die-auferstehung-.jpg')
 
-vehicle_one = Vehicle.create(user: user_one, name: "Executor", description: "The famous Super Star Destroyer!", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 25.000)
-vehicle_two = Vehicle.create(user: user_two, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 15.000)
-vehicle_three = Vehicle.create(user: user_three, name: "Flying Carpet", description: "A Carpet that can fly! What's more to say?", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 2.500)
-vehicle_four = Vehicle.create(user: user_four, name: "Red Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 5.000)
-vehicle_five = Vehicle.create(user: user_five, name: "Green Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "France", category: Vehicle::CATEGORIES.sample, price: 6.000)
-vehicle_six = Vehicle.create(user: user_one, name: "Flying Broom", description: "That broom flies you everywhere you want fast and safe.", location: "Hogwarts", category: Vehicle::CATEGORIES.sample, price: 750)
-vehicle_seven = Vehicle.create(user: user_two, name: "X-wing fighter", description: "This compact (41-foot, 12.5-meter long) Rebel spitfire gets the job done!", location: "Solar system 1GH", category: Vehicle::CATEGORIES.sample, price: 3.500)
-vehicle_eight = Vehicle.create(user: user_three, name: "The Devastator", description: "Darth Vader's nearly 5,250-foot-long (1,600-meter), Imperial-class Star Destroyer", location: "Solar system 5NX", category: Vehicle::CATEGORIES.sample, price: 17.500)
-vehicle_nine = Vehicle.create(user: user_four, name: "DeLorean DMC-12", description: "You ever wanted to fly with a car? This is the right one for that!", location: "USA", category: Vehicle::CATEGORIES.sample, price: 6.500)
-vehicle_ten = Vehicle.create(user: user_five, name: "The Wheelhouse", description: "Travel and take your house with you.", location: "Scotland", category: Vehicle::CATEGORIES.sample, price: 2.500)
-vehicle_eleven = Vehicle.create(user: user_one, name: "Dieselpunk", description: "Half car, half scrapheap. But it will bring you from A to B.", location: "Italy", category: Vehicle::CATEGORIES.sample, price: 250)
-vehicle_twelve = Vehicle.create(user: user_two, name: "Race car", description: "The fastest car that you will find.", location: "London", category: Vehicle::CATEGORIES.sample, price: 1.500)
-vehicle_thirteen = Vehicle.create(user: user_three, name: "Two wheeler", description: "If you want to ride a special motorcycle, you have found the right one.", location: "Berlin", category: Vehicle::CATEGORIES.sample, price: 750)
-vehicle_fourteen = Vehicle.create(user: user_four, name: "Pegasus", description: "What's not to like about a flying horse?", location: "Hamburg", category: Vehicle::CATEGORIES.sample, price: 350)
-vehicle_fifteen = Vehicle.create(user: user_five, name: "Phoenix", description: "Attention: The ride could be quite hot!", location: "Texas", category: Vehicle::CATEGORIES.sample, price: 1250)
+vehicle_one = Vehicle.create(user: owner, name: "Executor", description: "The famous Super Star Destroyer!", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 25.000)
+vehicle_two = Vehicle.create(user: owner, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 15.000)
+vehicle_three = Vehicle.create(user: owner, name: "Flying Carpet", description: "A Carpet that can fly! What's more to say?", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 2.500)
+vehicle_four = Vehicle.create(user: owner, name: "Red Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 5.000)
+vehicle_five = Vehicle.create(user: owner, name: "Green Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "France", category: Vehicle::CATEGORIES.sample, price: 6.000)
+vehicle_six = Vehicle.create(user: owner, name: "Flying Broom", description: "That broom flies you everywhere you want fast and safe.", location: "Hogwarts", category: Vehicle::CATEGORIES.sample, price: 750)
+vehicle_seven = Vehicle.create(user: owner, name: "X-wing fighter", description: "This compact (41-foot, 12.5-meter long) Rebel spitfire gets the job done!", location: "Solar system 1GH", category: Vehicle::CATEGORIES.sample, price: 3.500)
+vehicle_eight = Vehicle.create(user: owner, name: "The Devastator", description: "Darth Vader's nearly 5,250-foot-long (1,600-meter), Imperial-class Star Destroyer", location: "Solar system 5NX", category: Vehicle::CATEGORIES.sample, price: 17.500)
+vehicle_nine = Vehicle.create(user: owner, name: "DeLorean DMC-12", description: "You ever wanted to fly with a car? This is the right one for that!", location: "USA", category: Vehicle::CATEGORIES.sample, price: 6.500)
+vehicle_ten = Vehicle.create(user: owner, name: "The Wheelhouse", description: "Travel and take your house with you.", location: "Scotland", category: Vehicle::CATEGORIES.sample, price: 2.500)
+vehicle_eleven = Vehicle.create(user: owner, name: "Dieselpunk", description: "Half car, half scrapheap. But it will bring you from A to B.", location: "Italy", category: Vehicle::CATEGORIES.sample, price: 250)
+vehicle_twelve = Vehicle.create(user: owner, name: "Race car", description: "The fastest car that you will find.", location: "London", category: Vehicle::CATEGORIES.sample, price: 1.500)
+vehicle_thirteen = Vehicle.create(user: owner, name: "Two wheeler", description: "If you want to ride a special motorcycle, you have found the right one.", location: "Berlin", category: Vehicle::CATEGORIES.sample, price: 750)
+vehicle_fourteen = Vehicle.create(user: owner, name: "Pegasus", description: "What's not to like about a flying horse?", location: "Hamburg", category: Vehicle::CATEGORIES.sample, price: 350)
+vehicle_fifteen = Vehicle.create(user: owner, name: "Phoenix", description: "Attention: The ride could be quite hot!", location: "Texas", category: Vehicle::CATEGORIES.sample, price: 1250)
 
 vehicle_one.photos.attach(io: file_one, filename: 'Executor_BF2.png', content_type: 'image/png')
 vehicle_two.photos.attach(io: file_two, filename: 'milleniumfalconairhogs.jpg', content_type: 'image/jpg')
@@ -99,9 +95,9 @@ puts "Finished!"
 # Creating bookings
 
 
-booking_one = Booking.create(user: user_one, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'pending')
-booking_two = Booking.create(user: user_two, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'accepted')
-booking_three = Booking.create(user: user_three, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'declined')
+booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'pending')
+booking_two = Booking.create(user: renter, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'accepted')
+booking_three = Booking.create(user: renter, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'declined')
 
 
 puts "Created #{booking_one}"
@@ -111,9 +107,9 @@ puts "Finished!"
 
 # Creating reviews
 
-review_one = Review.create(booking: booking_one, title: "The Best!", content: "That was a super fun experience.", rating: 5)
-review_two = Review.create(booking: booking_two, title: "It was okay", content: "It was a decent experience", rating: 3)
-review_three = Review.create(booking: booking_three, title: "Wow!", content: "I never had so much fun in my life before.", rating: 5)
+review_one = Review.create(user: renter, booking: booking_one, title: "The Best!", content: "That was a super fun experience.", rating: 5)
+review_two = Review.create(user: renter, booking: booking_two, title: "It was okay", content: "It was a decent experience", rating: 3)
+review_three = Review.create(user: renter, booking: booking_three, title: "Wow!", content: "I never had so much fun in my life before.", rating: 5)
 
 puts "Created #{review_one}"
 puts "Created #{review_two}"
