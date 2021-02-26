@@ -19,6 +19,8 @@ class Vehicle < ApplicationRecord
   end
 
   def ratings
+    return if reviews.empty?
+
     arr = reviews.map(&:rating)
     { mean: (arr.sum(0.0) / arr.size), count: arr.size }
   end
