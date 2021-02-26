@@ -43,18 +43,24 @@ file_thirteen = URI.open('https://cdn.trendhunterstatic.com/thumbs/futuristic-mo
 file_fourteen = URI.open('https://photos.desired.de/12/55/45/cd8b6dc20e44c5222a0f408211_ZmMgODBhZDZmZTdmZmZmIDk1MCA0NzUCcmUgOTUwIDQ3NQMxNWNiY2VjMjAwMQ==_pegasus-tattoo.png')
 file_fifteen = URI.open('https://bilder.t-online.de/b/76/36/23/36/id_76362336/c_Master-1-1-Large/tid_da/der-phoenix-hat-viele-bedeutungen-im-christentum-symbolisiert-er-die-auferstehung-.jpg')
 
-vehicle_one = Vehicle.create(user: owner, name: "Executor", description: "The famous Super Star Destroyer!", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 25.000)
-vehicle_two = Vehicle.create(user: owner, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 15.000)
-vehicle_three = Vehicle.create(user: owner, name: "Flying Carpet", description: "A Carpet that can fly! What's more to say?", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 2.500)
-vehicle_four = Vehicle.create(user: owner, name: "Red Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 5.000)
-vehicle_five = Vehicle.create(user: owner, name: "Green Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "France", category: Vehicle::CATEGORIES.sample, price: 6.000)
+file_sixteen = URI.open('http://2.bp.blogspot.com/-qpBUiyna5lo/VMmaYtXM6kI/AAAAAAAADdE/Phyex0AxHVg/s1600/3_DeathToWhisperers_GuidoKuip_2014.jpg')
+file_seventeen = URI.open('https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-green-dragon-daniel-eskridge.jpg')
+
+file_eighteen = URI.open('https://squir.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/4/0/40877.jpg')
+file_nineteen = URI.open('https://www.cgstudio.com/imgd/l/4/56bb253e61946e24028b4567/6104.jpg')
+
+vehicle_one = Vehicle.create(user: owner, name: "Executor", description: "The famous Super Star Destroyer!", location: "Solar system 4XF", category: Vehicle::CATEGORIES.sample, price: 25000)
+vehicle_two = Vehicle.create(user: owner, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: Vehicle::CATEGORIES.sample, price: 15000)
+vehicle_three = Vehicle.create(user: owner, name: "Flying Carpet", description: "A Carpet that can fly! What's more to say?", location: "Orient", category: Vehicle::CATEGORIES.sample, price: 2500)
+vehicle_four = Vehicle.create(user: owner, name: "Red Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "Germany", category: Vehicle::CATEGORIES.sample, price: 5000)
+vehicle_five = Vehicle.create(user: owner, name: "Green Dragon", description: "Attention: A ride with that dragon could ruin your hairstyle!", location: "France", category: Vehicle::CATEGORIES.sample, price: 6000)
 vehicle_six = Vehicle.create(user: owner, name: "Flying Broom", description: "That broom flies you everywhere you want fast and safe.", location: "Hogwarts", category: Vehicle::CATEGORIES.sample, price: 750)
-vehicle_seven = Vehicle.create(user: owner, name: "X-wing fighter", description: "This compact (41-foot, 12.5-meter long) Rebel spitfire gets the job done!", location: "Solar system 1GH", category: Vehicle::CATEGORIES.sample, price: 3.500)
-vehicle_eight = Vehicle.create(user: owner, name: "The Devastator", description: "Darth Vader's nearly 5,250-foot-long (1,600-meter), Imperial-class Star Destroyer", location: "Solar system 5NX", category: Vehicle::CATEGORIES.sample, price: 17.500)
-vehicle_nine = Vehicle.create(user: owner, name: "DeLorean DMC-12", description: "You ever wanted to fly with a car? This is the right one for that!", location: "USA", category: Vehicle::CATEGORIES.sample, price: 6.500)
-vehicle_ten = Vehicle.create(user: owner, name: "The Wheelhouse", description: "Travel and take your house with you.", location: "Scotland", category: Vehicle::CATEGORIES.sample, price: 2.500)
+vehicle_seven = Vehicle.create(user: owner, name: "X-wing fighter", description: "This compact (41-foot, 12.5-meter long) Rebel spitfire gets the job done!", location: "Solar system 1GH", category: Vehicle::CATEGORIES.sample, price: 3500)
+vehicle_eight = Vehicle.create(user: owner, name: "The Devastator", description: "Darth Vader's nearly 5,250-foot-long (1,600-meter), Imperial-class Star Destroyer", location: "Solar system 5NX", category: Vehicle::CATEGORIES.sample, price: 17500)
+vehicle_nine = Vehicle.create(user: owner, name: "DeLorean DMC-12", description: "You ever wanted to fly with a car? This is the right one for that!", location: "USA", category: Vehicle::CATEGORIES.sample, price: 6500)
+vehicle_ten = Vehicle.create(user: owner, name: "The Wheelhouse", description: "Travel and take your house with you.", location: "Scotland", category: Vehicle::CATEGORIES.sample, price: 2500)
 vehicle_eleven = Vehicle.create(user: owner, name: "Dieselpunk", description: "Half car, half scrapheap. But it will bring you from A to B.", location: "Italy", category: Vehicle::CATEGORIES.sample, price: 250)
-vehicle_twelve = Vehicle.create(user: owner, name: "Race car", description: "The fastest car that you will find.", location: "London", category: Vehicle::CATEGORIES.sample, price: 1.500)
+vehicle_twelve = Vehicle.create(user: owner, name: "Race car", description: "The fastest car that you will find.", location: "London", category: Vehicle::CATEGORIES.sample, price: 1500)
 vehicle_thirteen = Vehicle.create(user: owner, name: "Two wheeler", description: "If you want to ride a special motorcycle, you have found the right one.", location: "Berlin", category: Vehicle::CATEGORIES.sample, price: 750)
 vehicle_fourteen = Vehicle.create(user: owner, name: "Pegasus", description: "What's not to like about a flying horse?", location: "Hamburg", category: Vehicle::CATEGORIES.sample, price: 350)
 vehicle_fifteen = Vehicle.create(user: owner, name: "Phoenix", description: "Attention: The ride could be quite hot!", location: "Texas", category: Vehicle::CATEGORIES.sample, price: 1250)
@@ -74,6 +80,13 @@ vehicle_twelve.photos.attach(io: file_twelve, filename: 'Steampunk-Race-Car-Desi
 vehicle_thirteen.photos.attach(io: file_thirteen, filename: 'futuristic-motorcycle.jpeg', content_type: 'image/jpg')
 vehicle_fourteen.photos.attach(io: file_fourteen, filename: 'cd8b6dc20e44c5222a0f408211_ZmMgODBhZDZmZTdmZmZmIDk1MCA0NzUCcmUgOTUwIDQ3NQMxNWNiY2VjMjAwMQ==_pegasus-tattoo.png', content_type: 'image/png')
 vehicle_fifteen.photos.attach(io: file_fifteen, filename: 'der-phoenix-hat-viele-bedeutungen-im-christentum-symbolisiert-er-die-auferstehung-.jpg', content_type: 'image/jpg')
+
+vehicle_five.photos.attach(io: file_sixteen, filename: '3_DeathToWhisperers_GuidoKuip_2014.jpg', content_type: 'image/jpg')
+vehicle_five.photos.attach(io: file_seventeen, filename: '1-green-dragon-daniel-eskridge.jpg', content_type: 'image/jpg')
+
+vehicle_seven.photos.attach(io: file_eighteen, filename: '40877.jpg', content_type: 'image/jpg')
+vehicle_seven.photos.attach(io: file_nineteen, filename: '6104.jpg', content_type: 'image/jpg')
+
 
 puts "Created #{vehicle_one}"
 puts "Created #{vehicle_two}"
