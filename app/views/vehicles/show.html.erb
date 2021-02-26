@@ -13,13 +13,23 @@
                         <% end %>
                           <% end %>
               </h1>
-
+              <div class="rating-stars">
+                <% if @vehicle.ratings %>
+                  <% rating = @vehicle.ratings[:mean].to_i %>
+                  <% rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                <% end %>
+              </div>
               <br />
               <%= link_to "Back" , vehicles_path, class:'btn btn-primary' %>
             </div>
             <p class="vehicle-user">
               <em>
-                Posted by <%= @vehicle.user.name %> - <%= @vehicle.user.created_at %>
+                Posted by <%= @vehicle.user.name %>
               </em>
             </p>
           </div>
