@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2021_02_25_103300) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "vehicle_id", null: false
     t.bigint "user_id", null: false
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "pending"
@@ -57,14 +57,12 @@ ActiveRecord::Schema.define(version: 2021_02_25_103300) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "booking_id", null: false
-    t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,6 +95,5 @@ ActiveRecord::Schema.define(version: 2021_02_25_103300) do
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "vehicles"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "reviews", "users"
   add_foreign_key "vehicles", "users"
 end
