@@ -42,6 +42,11 @@ file_twelve = URI.open('https://www.cadcrowd.com/blog/wp-content/uploads/2016/11
 file_thirteen = URI.open('https://cdn.trendhunterstatic.com/thumbs/futuristic-motorcycle.jpeg')
 file_fourteen = URI.open('https://photos.desired.de/12/55/45/cd8b6dc20e44c5222a0f408211_ZmMgODBhZDZmZTdmZmZmIDk1MCA0NzUCcmUgOTUwIDQ3NQMxNWNiY2VjMjAwMQ==_pegasus-tattoo.png')
 file_fifteen = URI.open('https://bilder.t-online.de/b/76/36/23/36/id_76362336/c_Master-1-1-Large/tid_da/der-phoenix-hat-viele-bedeutungen-im-christentum-symbolisiert-er-die-auferstehung-.jpg')
+file_sixteen = URI.open('http://2.bp.blogspot.com/-qpBUiyna5lo/VMmaYtXM6kI/AAAAAAAADdE/Phyex0AxHVg/s1600/3_DeathToWhisperers_GuidoKuip_2014.jpg')
+file_seventeen = URI.open('https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-green-dragon-daniel-eskridge.jpg')
+file_eighteen = URI.open('https://squir.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/4/0/40877.jpg')
+file_nineteen = URI.open('https://www.cgstudio.com/imgd/l/4/56bb253e61946e24028b4567/6104.jpg')
+
 
 vehicle_one = Vehicle.create(user: owner, name: "Executor", description: "The famous Super Star Destroyer!", location: "Solar system 4XF", category: 'sci-fi', price: 25.000)
 vehicle_two = Vehicle.create(user: owner, name: "Millennium Falcon", description: "The best spaceship ever made!", location: "Solar system 3GH", category: 'sci-fi', price: 15.000)
@@ -75,6 +80,13 @@ vehicle_thirteen.photos.attach(io: file_thirteen, filename: 'futuristic-motorcyc
 vehicle_fourteen.photos.attach(io: file_fourteen, filename: 'cd8b6dc20e44c5222a0f408211_ZmMgODBhZDZmZTdmZmZmIDk1MCA0NzUCcmUgOTUwIDQ3NQMxNWNiY2VjMjAwMQ==_pegasus-tattoo.png', content_type: 'image/png')
 vehicle_fifteen.photos.attach(io: file_fifteen, filename: 'der-phoenix-hat-viele-bedeutungen-im-christentum-symbolisiert-er-die-auferstehung-.jpg', content_type: 'image/jpg')
 
+vehicle_five.photos.attach(io: file_sixteen, filename: '3_DeathToWhisperers_GuidoKuip_2014.jpg', content_type: 'image/jpg')
+vehicle_five.photos.attach(io: file_seventeen, filename: '1-green-dragon-daniel-eskridge.jpg', content_type: 'image/jpg')
+
+vehicle_seven.photos.attach(io: file_eighteen, filename: '40877.jpg', content_type: 'image/jpg')
+vehicle_seven.photos.attach(io: file_nineteen, filename: '6104.jpg', content_type: 'image/jpg')
+
+
 puts "Created #{vehicle_one}"
 puts "Created #{vehicle_two}"
 puts "Created #{vehicle_three}"
@@ -95,7 +107,7 @@ puts "Finished!"
 # Creating bookings
 
 
-booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'pending')
+booking_one = Booking.create(user: renter, vehicle: vehicle_one, start_date: DateTime.yesterday, end_date: DateTime.yesterday, status: 'accepted')
 booking_two = Booking.create(user: renter, vehicle: vehicle_two, start_date: DateTime.yesterday, end_date: DateTime.tomorrow, status: 'accepted')
 booking_three = Booking.create(user: renter, vehicle: vehicle_three, start_date: DateTime.yesterday, end_date: DateTime.now, status: 'declined')
 

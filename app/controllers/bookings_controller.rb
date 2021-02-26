@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-    @booking.save ? (redirect_to user_path(current_user)) : (render 'users/show')
+    @booking.save(validate: false) ? (redirect_to user_path(current_user)) : (render 'users/show')
   end
 
   private
