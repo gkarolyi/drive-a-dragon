@@ -51,17 +51,17 @@
   }
 }
 
-.btn-booking {
+a.btn-booking {
   display: inline-block;
   font-size: 12px;
   padding: 4px 0;
   text-align: center;
   width: 50px;
   margin: 4px 0 4px;
-  color: black;
+  color: white;
   &:hover,
   &:focus {
-    color: white;
+    color: black;
   }
 }
 

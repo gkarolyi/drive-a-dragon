@@ -1,8 +1,8 @@
 <h1><%= @user.name %></h1>
 
-
-<div class="vehicle mx-0 w-100">
-  <% if @user == current_user && @bookings.any? %>
+<!-- BOOKINGS MADE BY THE USER -->
+<% if @user == current_user && @bookings.any? %>
+  <div class="vehicle mx-0 w-100">
     <% your = @user == current_user ? "Your" : ""  %>
     <h2 class="mb-3"><%= your %> Bookings</h2>
       <% @bookings.each do |booking| %>
@@ -23,16 +23,22 @@
               </div>
               <div class="d-flex flex-column align-items-end justify-content-between align-self-stretch">
                 <p class="mt-2"><%= booking.status %></p>
-                <%= link_to "cancel", [booking, { booking: { status: 'cancelled' }}], method: :patch, class: "btn btn-danger btn-booking mr-0" %>
+                <% if booking.end_date < Date.today && booking.status == 'accepted' %>
+                  <%= link_to "review", vehicles_path, class: "btn btn-primary btn-booking mr-0" %>
+                <% elsif booking.start_date > Date.today && ['accpted', 'pending'].include?(booking.status)%>
+                  <%= link_to "cancel", [booking, { booking: { status: 'cancelled' }}], method: :patch, class: "btn btn-danger btn-booking mr-0" %>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-  <% end %>
-</div>
-<div class="vehicle mx-0 w-100">
-  <% if @user == current_user && @vehicle_bookings.any? %>
+  </div>
+<% end %>
+
+<!-- BOOKINGS OF USERS VEHICLES -->
+<% if @user == current_user && @vehicle_bookings.any? %>
+  <div class="vehicle mx-0 w-100">
     <h2 class="mb-3">Bookings of your vehicles</h2>
       <% @vehicle_bookings.each do |booking| %>
         <div class="card-product" style="height: 130px;">
@@ -59,8 +65,8 @@
           </div>
         </div>
       <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <div class="vehicle mx-0 w-100">
   <% if @vehicles.any? %>
