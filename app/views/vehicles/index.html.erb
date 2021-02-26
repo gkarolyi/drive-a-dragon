@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center">
     <h1>Browse all vehicles</h1>
-    <div>
-      <%= link_to icon('fas', 'plus', class: 'strong'), new_vehicle_path %>
-    </div>
+  <div class="d-flex justify-content-start align-items-center mt-2 mb-4">
+    <%= link_to 'All', vehicles_path, class: "btn btn-search" %>
+    <%= link_to 'Sci-Fi', vehicles_path(query: 'sci-fi'), class: "btn btn-search" %>
+    <%= link_to 'Magic Objects', vehicles_path(query: 'magic object'), class: "btn btn-search" %>
+    <%= link_to 'Magic Creatures', vehicles_path(query: 'magic creature'), class: "btn btn-search" %>
   </div>
-
-  <br />
-  <br />
   <%= render 'shared/vehicles_grid' %>
 </div>
+
+<!-- 'sci-fi', 'magic creature', 'magic object' -->
